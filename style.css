@@ -1,7 +1,8 @@
 body {
-    font-family: sans-serif;
+    font-family: "Segoe UI", Roboto, sans-serif;
     background-color: #f4f4f4;
     padding: 2rem;
+    margin: 0;
   }
   
   .product-container {
@@ -22,7 +23,7 @@ body {
   }
   
   .accordion {
-    background: white;
+    background: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
@@ -40,17 +41,25 @@ body {
   }
   
   label {
-    display: block;
-    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
     position: relative;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease;
+  }
+  
+  label:hover {
+    background-color: #f0f0f0;
   }
   
   label::after {
     content: "+";
-    position: absolute;
-    right: 1rem;
+    font-size: 1.2rem;
     transition: transform 0.3s ease;
   }
   
@@ -60,13 +69,24 @@ body {
   }
   
   .content {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    height: auto;
     max-height: 0;
     overflow: hidden;
+    transition: transform 0.4s ease, opacity 0.4s ease;
     padding: 0 1rem;
-    transition: max-height 0.4s ease;
   }
   
   input[type="checkbox"]:checked ~ .content {
-    max-height: 500px;
+    transform: scaleY(1);
+    opacity: 1;
+    max-height: 1000px; 
     padding-bottom: 1rem;
   }
+  
+  .content p {
+    margin: 1rem 0 0;
+    line-height: 1.5;
+  }  
