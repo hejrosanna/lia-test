@@ -1,92 +1,73 @@
 body {
-    font-family: "Segoe UI", Roboto, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f4f4;
     padding: 2rem;
     margin: 0;
+    color: #000000;
   }
   
-  .product-container {
+  .container {
     max-width: 600px;
     margin: auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
   }
   
   .product-image {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   .product-image img {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .accordion {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
   
   .accordion-item {
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    padding: 0.8rem 0;
   }
   
-  .accordion-item:last-child {
-    border-bottom: none;
+  .accordion-item:first-child {
+    border-top: none;
   }
   
-  input[type="checkbox"] {
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1rem;
+    list-style: none;
+    position: relative;
+    padding-right: 25px;
+    user-select: none;
+  }
+  
+  summary::-webkit-details-marker {
     display: none;
   }
   
-  label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: 600;
-    position: relative;
-    background-color: #fafafa;
-    transition: background-color 0.3s ease;
-  }
-  
-  label:hover {
-    background-color: #f0f0f0;
-  }
-  
-  label::after {
+  summary::after {
     content: "+";
-    font-size: 1.2rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
     transition: transform 0.3s ease;
   }
   
-  input[type="checkbox"]:checked + label::after {
+  details[open] summary::after {
     content: "-";
-    transform: rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
   }
   
-  .content {
-    transform: scaleY(0);
-    transform-origin: top;
-    opacity: 0;
-    height: auto;
-    max-height: 0;
-    overflow: hidden;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    padding: 0 1rem;
+  .accordion-item p {
+    margin: 0.75rem 0 0 0;
+    line-height: 1.6;
+    padding-left: 1rem;
+    color: #000000;
+    transition: opacity 0.3s ease;
   }
-  
-  input[type="checkbox"]:checked ~ .content {
-    transform: scaleY(1);
-    opacity: 1;
-    max-height: 1000px; 
-    padding-bottom: 1rem;
-  }
-  
-  .content p {
-    margin: 1rem 0 0;
-    line-height: 1.5;
-  }  
