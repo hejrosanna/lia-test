@@ -1,0 +1,72 @@
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    padding: 2rem;
+  }
+  
+  .product-container {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .product-image {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .accordion-item {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .accordion-item:last-child {
+    border-bottom: none;
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  label {
+    display: block;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  label::after {
+    content: "+";
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  input[type="checkbox"]:checked + label::after {
+    content: "-";
+    transform: rotate(180deg);
+  }
+  
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    transition: max-height 0.4s ease;
+  }
+  
+  input[type="checkbox"]:checked ~ .content {
+    max-height: 500px;
+    padding-bottom: 1rem;
+  }
